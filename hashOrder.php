@@ -8,7 +8,7 @@ function hashOrder(int $number): string
     $even = $odd = '';
     for ($i = 0; $i < $length; $i++) {
         if ($i % 2 === 0) {
-            $even .= $output[$i];
+            $even .= strval(abs($output[$i] - 9));
         } else {
             $odd .= $output[$i];
         }
