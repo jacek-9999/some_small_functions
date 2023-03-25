@@ -31,6 +31,8 @@ function test():void
         'bbbbbba'     => 7,
         'bbbabba'     => -1,
         'bbbabbz'     => 4,
+        ''            => -1,
+        'a'           => 1
     ];
     foreach ($data as $input => $validOutput)
     {
