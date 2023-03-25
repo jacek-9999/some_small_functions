@@ -1,0 +1,241 @@
+openapi: 3.0.3
+info:
+  title: Swagger example - OpenAPI 3.0
+  description: |-
+    sample description
+  version: 0.0.1
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+tags:
+  - name: part
+    description: Some parts of something
+paths:
+  /v1/upload:
+    post:
+      tags:
+        - part
+      summary: Add some parts
+      description: Add some parts
+      operationId: addParts
+      requestBody:
+        description: Add some parts
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Part'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '402':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+        '405':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+        '406':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+        '407':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+        '408':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+        '409':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+        '501':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+        '502':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+        '503':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+        '505':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+        '506':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+        '507':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid input
+      security:
+        - bearerAuth: [ ]
+components:
+  schemas:
+    Part:
+      required:
+        - part
+        - etag
+      type: object
+      properties:
+        part:
+          type: integer
+          format: int64
+          example: 10
+        etag:
+          type: string
+          example: "a54357aff0632cce46d942af68356b38"
+    ApiResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        timestamp:
+          type: integer
+        source:
+          type: string
+        folder:
+          type: string
+        height:
+          type: integer
+        width:
+          type: integer
+        mime:
+          type: string
+        display:
+          type: object
+          properties:
+            thumbnail:
+              type: object
+              properties:
+                width:
+                  type: integer
+                height:
+                  type: integer
+                src:
+                  type: string
+            preview:
+              type: object
+              properties:
+                width:
+                  type: integer
+                height:
+                  type: integer
+                src:
+                  type: string
+            square:
+              type: object
+              properties:
+                width:
+                  type: integer
+                height:
+                  type: integer
+                src:
+                  type: string
+            original:
+              type: object
+              properties:
+                width:
+                  type: integer
+                height:
+                  type: integer
+                src:
+                  type: string
+        metadata:
+          type: object
+          properties:
+            gps:
+              type: string
+            datetime:
+              type: integer
+            name:
+              type: string
+    ErrorResponse:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+        userMessage:
+          type: string
+        devMessage:
+          type: string
+        more:
+          type: string
+        applicationCode:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
