@@ -24,7 +24,6 @@ function test()
 
     for ($i=1; $i<=9999999; $i++) {
         $result = hashOrder($i);
-        var_dump($result);
 
         if (!preg_match("/^[0-9]{7}$/", $result)) {
             throw new InvalidArgumentException("Result {$result} does not match regex");
